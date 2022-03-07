@@ -1,4 +1,5 @@
 import Square from './Square'
+import NewGameButton from './NewGameButton'
 import './index.css'
 import { useState } from 'react'
 
@@ -22,7 +23,7 @@ const Board = () => {
         }
         return null
       }
-  
+
     function handleClick(i) {
       const newSquares = [...squares]
       const winnerDeclared = Boolean(calculateWinner(newSquares))
@@ -64,6 +65,11 @@ const Board = () => {
           {renderSquare(6)}
           {renderSquare(7)}
           {renderSquare(8)}
+        </div>
+        <div>
+            {winner ? 
+                <NewGameButton initialSquares={initialSquares} setSquares={setSquares}/> 
+                : ""}
         </div>
       </div>
     )
